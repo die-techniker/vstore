@@ -6,4 +6,6 @@ layout: html
 
 # VStore 2
 
-VStore 2 ist aktuell in Entwicklung und noch nicht verfügbar. Verwende bitte VStore 1
+Ein kostenloser App-Store für Entwickler und Apple-Geräte-Nutzer
+
+[Download](/vstore/app/VStore.mobileconfig)

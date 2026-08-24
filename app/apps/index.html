@@ -16,22 +16,18 @@ excerpt: "Ein kostenloser App-Store für Entwickler und Apple-Gerät-Nutzer"
     </style>
     <meta charset="UTF-8">
     <script>
-      function InstallCSE(){
-        alert("Hinweise zur Installation von CSE:\nFalls du AltStore installiert hast, wirst du nach dem du Ok drückst zur Quelle des Entwicklers weitergeleitet. Klicke oben rechts auf das Plus und suche nach der App Customize Search Engine. Wenn du sie gefunden hast klicke auf FREE und führe alle bestätigungen durch.");
-        location.href() = "altstore-pal://source?url=https://i.cizzuk.net/altstore/source.pal.json"
-      }
     </script>
   </head>
   <body>
     
     <h1 style="font-weight: normal; text-decoration: underline; font-color: #000000">Apps</h1>
     Bevor du Apps installierst, wird empfohlen die Anleitungen <a href="#oben">(oben im Menü)</a> zu lesen
-    
+    <!--
     <h2><a href="https://altstore.io/download#" style="text-decoration: none; background-color: #00ffff">AltStore</a></h2>
     <h3 style="font-weight: normal; background-color: #81ffe6; font-color: #ffffff">Typ: Drittanbieter-Store<br>Kompatibilität: Erfordert iOS 17.4 oder neuer</h3>
     <h3 style="font-weight: normal; background-color: #81ffe6">AltStore ist ein Drittanbieter-Store, wo man Quellen mit Apps hinzufügen kann</h3>
 
-    <h2><a href="javascript: InstallCSE()" style="text-decoration: none; background-color: #00ffff">Customize Search Engine (CSE)</a></h2>
+    <h2><a href="altstore-pal://source?url=https://i.cizzuk.net/altstore/source.pal.json" style="text-decoration: none; background-color: #00ffff">Customize Search Engine (CSE)</a></h2>
     <h3 style="font-weight: normal; background-color: #81ffe6; font-color: #ffffff">Typ: AltStore-App<br>Entwickler: Cizzuk<br>Kompatibilität: erfordert einen installierten AltStore (von Oben), iOS 17.4 oder neuer</h3>
     <h3 style="font-weight: normal; background-color: #81ffe6">CSE ist eine App, mit der man die Standard-Suchmaschiene von Safari vollständig bestimmen kann.</h3>
     
@@ -50,6 +46,108 @@ excerpt: "Ein kostenloser App-Store für Entwickler und Apple-Gerät-Nutzer"
     <h2><a href="/vstore/app/Radiolise.mobileconfig" style="text-decoration: none;  background-color: #00ffff" >Radiolise</a></h2>
     <h3 style="font-weight: normal; background-color: #81ffe6"; font-color: #ffffff>Typ: mobileconfig-App</h3>
     <h3 style="font-weight: normal; background-color: #81ffe6">Ein kostenloser Online-Radio-Player der auf die radio-browser Datenbank basiert</h3>
+  -->
+
+<VStore-App
+name="AltStore"
+url="https://altstore.io/download#"
+beschreibung="AltStore ist ein Drittanbieter-Store, wo man Quellen mit Apps hinzufügen kann"
+typ="Drittanbieter-Store"
+kompatibilität="iOS 17.4 oder neuer"
+sonstiges="AltStore hat nicht das Recht Apps zu installieren, ohne zu fragen. Vor jeder App-Installation ist eine bestätigung nötig.">
+</VStore-App>
+
+<VStore-App
+name="Customize Search Engine (CSE)"
+url="altstore-pal://source?url=https://i.cizzuk.net/altstore/source.pal.json"
+beschreibung="CSE ist eine App, mit der man die Standard-Suchmaschiene von Safari vollständig bestimmen kann."
+typ="AltStore-App"
+kompatibilität="erfordert einen installierten AltStore (von Oben), iOS 17.4 oder neuer"
+sonstiges="Dies ist eine Safari-Erweiterung">
+</VStore-App>
+
+<VStore-App
+name="UhrzeitApp"
+url="/vstore/app/UhrzeitApp.mobileconfig"
+beschreibung='UhrzeitApp ist eine webbasierte App auf <a href="https://viktor-chiarcos.github.io">meiner Webseite'
+typ="mobileconfig-App"
+kompatibilität="jedes Gerät"
+sonstiges="Ebenfalls für Linux erhältlich">
+</VStore-App>
+
+<VStore-App
+name="Boocord Music"
+url="/vstore/app/Boocord_Music.mobileconfig"
+beschreibung='Boocord Music ist ein kostenloser Musik-Streamingdienst, der auch über das <a href="https://music.boocord.com">Web</a> erreichbar ist.'
+typ="mobileconfig-App"
+kompatibilität="Android und iOS"
+sonstiges="———">
+</VStore-App>
+
+<VStore-App
+name="ANTON"
+url="/vstore/app/ANTON.mobileconfig"
+beschreibung="ANTON ist ein Online-Lernprogramm. Diese App ist nur eine Web-Spiegelung (mehr Datenverbrauch aber weniger Speicherverbrauch)"
+typ="mobileconfig-App"
+kompatibilität="iOS"
+sonstiges="Ab 5 Jahren empfohlen">
+</VStore-App>
+
+<VStore-App
+name="Radiolise"
+url="/vstore/app/Radiolise.mobileconfig"
+beschreibung="Ein kostenloser Online-Radio-Player der auf die radio-browser Datenbank basiert"
+typ="mobileconfig-App"
+kompatibilität="Android und iOS"
+sonstiges="———">
+</VStore-App>
+
+
+<!--
+Vorlage
+<VStore-App
+name=""
+url=""
+beschreibung=""
+typ=""
+kompatibilität=""
+sonstiges="">
+</VStore-App>
+-->
+<script>
+    // 1. Das Element einmalig beim Browser registrieren
+    class VStoreAppElement extends HTMLElement {
+        constructor() {
+            super();
+        }
+    }
+    customElements.define('vstore-app', VStoreAppElement);
+
+    // 2. ALLE <vstore-app> Elemente auf der Seite finden
+    const alleApps = document.querySelectorAll('vstore-app');
+
+    // 3. Jede einzelne App durchgehen und die Attribute auslesen
+    alleApps.forEach((app, index) => {
+        let name = app.getAttribute('name');
+        let url = app.getAttribute('url');
+        let sonstiges = app.getAttribute('sonstiges');
+        let beschreibung = app.getAttribute('beschreibung');
+        let kompatibilitaet = app.getAttribute('kompatibilität');
+        let typ = app.getAttribute('typ');
+
+
+        // Ausgabe in der Konsole zur Kontrolle
+        console.log(`--- App #${index + 1} ---`);
+        console.log(`Name: ${name}`);
+        console.log(`Typ: ${typ}`);
+        console.log(`Beschreibung: ${beschreibung}`);
+        app.innerHTML = `
+<h2><a href="${url}" style="text-decoration: none; background-color: #00ffff">${name}</a></h2>
+    <h3 style="font-weight: normal; background-color: #81ffe6; font-color: #ffffff">Typ: ${typ}<br>Kompatibilität: ${kompatibilitaet}</h3><br>Sonstiges: ${sonstiges}
+    <h3 style="font-weight: normal; background-color: #81ffe6">${beschreibung}</h3>
+        `;
+    });
+</script>
 
   </body>
 </html

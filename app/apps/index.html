@@ -17,7 +17,8 @@ excerpt: "Ein kostenloser App-Store für Entwickler und Apple-Gerät-Nutzer"
     <meta charset="UTF-8">
     <script>
       function InstallCSE(){
-        alert("Hinweise zur Installation von CSE:\nFalls du AltStore installiert hast, wirst du nach dem du Ok drückst zur Quelle des Entwicklers weitergeleitet. Klicke oben rechts auf das Plus und suche nach der App Customize Search Engine. Wenn du sie gefunden hast klicke auf FREE und führe alle bestätigungen durch.")
+        alert("Hinweise zur Installation von CSE:\nFalls du AltStore installiert hast, wirst du nach dem du Ok drückst zur Quelle des Entwicklers weitergeleitet. Klicke oben rechts auf das Plus und suche nach der App Customize Search Engine. Wenn du sie gefunden hast klicke auf FREE und führe alle bestätigungen durch.");
+        location.href() = "altstore-pal://source?url=https://i.cizzuk.net/altstore/source.pal.json"
       }
     </script>
   </head>
@@ -30,7 +31,7 @@ excerpt: "Ein kostenloser App-Store für Entwickler und Apple-Gerät-Nutzer"
     <h3 style="font-weight: normal; background-color: #81ffe6; font-color: #ffffff">Typ: Drittanbieter-Store<br>Kompatibilität: Erfordert iOS 17.4 oder neuer</h3>
     <h3 style="font-weight: normal; background-color: #81ffe6">AltStore ist ein Drittanbieter-Store, wo man Quellen mit Apps hinzufügen kann</h3>
 
-    <h2><a href="altstore-pal://source?url=https://i.cizzuk.net/altstore/source.pal.json" style="text-decoration: none; background-color: #00ffff">Customize Search Engine (CSE)</a></h2>
+    <h2><a href="javascript: InstallCSE()" style="text-decoration: none; background-color: #00ffff">Customize Search Engine (CSE)</a></h2>
     <h3 style="font-weight: normal; background-color: #81ffe6; font-color: #ffffff">Typ: AltStore-App<br>Entwickler: Cizzuk<br>Kompatibilität: erfordert einen installierten AltStore (von Oben), iOS 17.4 oder neuer</h3>
     <h3 style="font-weight: normal; background-color: #81ffe6">CSE ist eine App, mit der man die Standard-Suchmaschiene von Safari vollständig bestimmen kann.</h3>
     

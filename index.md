@@ -6,6 +6,7 @@ layout: html
 
 # VStore 2
 
-Ein kostenloser App-Store für Entwickler und Apple-Geräte-Nutzer
+Ein kostenloser App-Store für Entwickler und Android und iOS
 
-[Download](/vstore/app/VStore.mobileconfig)
+[Download Android](/vstore-android/app/apps/vstore.apk)\
+[Download iOS](/vstore/app/VStore.mobileconfig)
